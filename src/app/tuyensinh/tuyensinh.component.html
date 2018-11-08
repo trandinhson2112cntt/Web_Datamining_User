@@ -1,0 +1,104 @@
+<div class="container">
+
+  <div class="row mt-4 mb-4">
+    <div class="card col-md-8 p-3">
+      <div class="col-md-12">
+        <div class="">
+          <label>Hãy chọn yêu cầu: </label>
+          <select class="form-control col-md-5">
+            <option value="Tìm hiểu về ngành">Tìm hiểu về ngành</option>
+            <option value="Tra cứu điểm">Tra cứu điểm</option>
+            <option value="Gợi ý thông tin">Gợi ý thông tin</option>
+          </select>
+        </div>
+        <br>
+
+        <h5>Bạn cần điền một số thông tin để tra cứu:</h5>
+        <label>Hãy chọn khối xét tuyển: </label>
+        <select class="form-control col-md-3">
+          <option value="Tìm hiểu về ngành">Khối A</option>
+          <option value="Tra cứu điểm">Khối B</option>
+          <option value="Gợi ý thông tin">Khối C</option>
+          <option value="Gợi ý thông tin">Khối D</option>
+        </select>
+        <div class="row">
+          <div class="md-form input-group col-4">
+            <div class="input-group-prepend" id="basic-addon1">
+              <span class="input-group-text" id="basic-addon1">Toán</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Nhập điểm" aria-describedby="basic-addon1">
+          </div>
+          <div class="md-form input-group col-4">
+            <div class="input-group-prepend" id="basic-addon1">
+              <span class="input-group-text" id="basic-addon1">Văn</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Nhập điểm" aria-describedby="basic-addon1">
+          </div>
+          <div class="md-form input-group col-4">
+            <div class="input-group-prepend" id="basic-addon1">
+              <span class="input-group-text" id="basic-addon1">Anh</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Nhập điểm" aria-describedby="basic-addon1">
+          </div>
+        </div>
+        <label>Hãy chọn ngành bạn muốn nộp hồ sơ: </label>
+        <select class="form-control col-md-4" id="dsKhoa">
+          <option value="" disabled selected>--Chọn ngành--</option>
+          <option *ngFor="let item of dsKhoa" [value]="item.TenKhoa">{{item.TenKhoa}}</option>
+        </select>
+        <button mdbBtn type="button" color="info" rounded="true" style="border-radius: 999px" class="waves-light float-right"
+          mdbWavesEffect (click)="getRulesXetTuyen()">Tra cứu</button>
+
+      </div>
+    </div>
+    <div class="col-md-4">
+      <circle-progress
+      [percent]="85"
+  [animation]="true"
+  [animationDuration]="300"
+  [backgroundColor] = "'#F1F1F1'"
+      [backgroundOpacity] = 0
+      [backgroundStrokeWidth] = 5
+      [backgroundPadding] = 24
+      [radius] = "86"
+      [space] = 2
+      [toFixed] = 0
+      [outerStrokeWidth] = "11"
+      [outerStrokeColor] = "'#FF6347'"
+      [innerStrokeColor] = "'#32CD32'"
+      [innerStrokeWidth] = "3"
+      [titleFontSize] = "17"
+      [subtitleColor] = "'#ffffff'"
+      [imageHeight] = 133
+      [showSubtitle] = "false"
+      [responsive] = "true"
+      [startFromZero] = "false"
+      ></circle-progress>     
+    </div>
+  </div>
+  <div class="row"  *ngIf="listHidden">
+    <div class="col-md-12">
+      <table mdbTable hover="true">
+        <thead>
+          <tr>
+            <th style="width: 10%">#</th>
+            <th style="width: 25%">X</th>
+            <th style="width: 25%">Y</th>
+            <th style="width: 15%">Tỷ lệ chính xác</th>
+            <th style="width: 20%">Chức năng</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol *ngFor="let el of data">
+            <th scope="row">{{el.Id}}</th>
+            <td>{{el.X}}</td>
+            <td>{{el.Y}}</td>
+            <td>{{el.Confidence}}</td>
+            <td><button mdbBtn type="button" color="success" rounded="true" style="border-radius: 100px" class="waves-light"
+              mdbWavesEffect>Số điểm tăng</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

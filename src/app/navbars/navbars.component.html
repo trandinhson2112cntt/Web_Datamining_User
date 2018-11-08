@@ -1,0 +1,167 @@
+<!-- Header -->
+<div class="container-fluid">
+  <!-- Cover -->
+  <div class="row" style="width: auto">
+    <div class="col-md-4">
+      <img src="../assets/image/Hutech.png" width="100%" height="250px">
+    </div>
+    <div class="col-md-8">
+      <img src="https://taocover.com/uploads/worigin/2017/09/20/anh-bia-trung-thu-85159c230021ed10_18a7ca05428532be95290b62d26d0132.jpg"
+        width="100%" height="250px">
+    </div>
+  </div>
+  <!-- Cover -->
+  <!-- Navagation -->
+  <div class="row">
+    <div class="col-md-12">
+      <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+        <!-- Navbar brand -->
+        <mdb-navbar-brand>
+          <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="router-link-active" (click)="isHidden=true">HUTECH</a>
+        </mdb-navbar-brand>
+
+        <!-- Collapsible content -->
+        <links>
+
+          <!-- Links -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link waves-light" mdbWavesEffect>Trang chủ
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-light" mdbWavesEffect>Chương trình đào tạo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-light" mdbWavesEffect>Hutech</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-light" mdbWavesEffect>Tin tức</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/trang-phong-dao-tao']" (click)="changePage()">Phòng đào tạo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/trang-admin']" (click)="changeToAdmin()">Admin</a>
+            </li>
+          </ul>
+          <!-- Links -->
+
+          <!-- Search form -->
+          <form class="form-inline my-20" mdbWavesEffect>
+            <div class=" mt-0">
+              <input class="form-control" type="text" placeholder="Tìm kiếm">
+              <button mdbBtn type="button" color="cyan" class="waves-light" mdbWavesEffect>
+                <mdb-icon icon="search"></mdb-icon>
+              </button>
+            </div>
+          </form>
+        </links>
+        <!-- Collapsible content -->
+
+      </mdb-navbar>
+      <!--/.Navbar-->
+    </div>
+  </div>
+  <!-- Navagation -->
+</div>
+<!-- Header -->
+
+<!--Carousel Wrapper-->
+<mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'" *ngIf="isHidden">
+  <!--First slide-->
+  <mdb-carousel-item style="height: 300px;">
+    <div class="view w-100">
+      <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide">
+      <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+    </div>
+    <div class="carousel-caption">
+      <h3 class="h3-responsive">Light mask</h3>
+      <p>First text</p>
+    </div>
+  </mdb-carousel-item>
+  <!--/First slide-->
+  <!--Second slide-->
+  <mdb-carousel-item style="height: 300px;">
+    <div class="view w-100">
+      <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg" alt="Second slide">
+      <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+    </div>
+    <div class="carousel-caption">
+      <h3 class="h3-responsive">Strong mask</h3>
+      <p>Secondary text</p>
+    </div>
+  </mdb-carousel-item>
+  <!--/Second slide-->
+  <!--Third slide-->
+  <mdb-carousel-item style="height: 300px;">
+    <div class="view w-100">
+      <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg" alt="Third slide">
+      <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+    </div>
+    <div class="carousel-caption">
+      <h3 class="h3-responsive">Slight mask</h3>
+      <p>Third text</p>
+    </div>
+  </mdb-carousel-item>
+  <!--/Third slide-->
+</mdb-carousel>
+<!--/.Carousel Wrapper-->
+
+<!-- Main -->
+<div *ngIf="isHidden" class="container">
+  <div class="row mt-3 wow zoomIn" data-wow-delay="0.5s">
+    <div class="col-md-6 pt-5 pb-5">
+
+      <mdb-card>
+        <mdb-card-header class="primary-color white-text">
+          <h4>Tư vấn tuyển sinh</h4>
+        </mdb-card-header>
+        <mdb-card-body>
+          <mdb-card-title>- Bạn muốn tư vấn tuyển sinh?</mdb-card-title>
+          <br>
+          <mdb-card-title>- Bạn muốn tư vấn ngành nào có khả năng trúng tuyển cao?</mdb-card-title>
+          <br>
+          <mdb-card-title>- Với kết quả tuyển sinh của bạn, bạn đang băn khoăn mình có khả năng đậu hay không?</mdb-card-title>
+          <!-- <mdb-card-text>With supporting text below as a natural lead-in to additional content.</mdb-card-text> -->
+          <br>
+          <button mdbBtn type="button" color="info" rounded="true" style="border-radius: 999px" class="waves-light float-right"
+            mdbWavesEffect routerLink="/tu-van-tuyen-sinh" (click)="clickLink()">Tra cứ thử xem!</button>
+
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+    <div class="col-md-6">
+      <img src="../assets/image/anh_tuyen_sinh.JPG" width="100%" class="img-thumbnail" style="border-radius:100px">
+    </div>
+  </div>
+  <div class="row mt-5 mb-3 wow bounceInLeft" data-wow-delay="0.5s">
+    <div class="col-md-6">
+      <img src="../assets/image/anh_hoc_tap.jpg" width="100%" style="border-radius:999px">
+    </div>
+    <div class="col-md-6 p-4">
+      <mdb-card>
+        <mdb-card-header class="green white-text">
+          <h4>Tư vấn học tập</h4>
+        </mdb-card-header>
+        <mdb-card-body>
+          <mdb-card-title>- Bạn muốn tìm hiểu thêm về vấn đề học tập?</mdb-card-title>
+          <br>
+          <mdb-card-title>- Bạn muốn tư vấn một lộ trình học hợp lý và hiệu quả nhất?</mdb-card-title>
+          <br>
+          <mdb-card-title>- Bạn muốn nâng cao kết quả học tập của mình?</mdb-card-title>
+          <!-- <mdb-card-text>With supporting text below as a natural lead-in to additional content.</mdb-card-text> -->
+          <br>
+          <button mdbBtn type="button" color="default" rounded="true" style="border-radius: 999px" class="waves-light"
+            mdbWavesEffect [routerLink]="['/tu-van-hoc-tap']" routerLinkActive="router-link-active" (click)="clickLink()">Tìm
+            hiểu nào!</button>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+  </div>
+
+</div>
+<!-- Main -->
+
+<router-outlet></router-outlet>
