@@ -12,10 +12,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { PhongdaotaoComponent } from './phongdaotao/phongdaotao.component';
 import { AdminComponent } from './admin/admin.component';
 import { FormsModule } from '@angular/forms';
+import { HTXettuyenComponent } from './HTXettuyen/HTXettuyen.component';
+
 
 const routesConfig: Routes = [
   { path: 'tu-van-tuyen-sinh', component: TuyensinhComponent },
   { path: 'tu-van-hoc-tap', component: HoctapComponent },
+  { path: 'HT-xet-tuyen', component: HTXettuyenComponent },
   { path: 'trang-phong-dao-tao', component: PhongdaotaoComponent },
   { path: 'trang-admin', component: AdminComponent }
 ];
@@ -28,6 +31,7 @@ const routesConfig: Routes = [
     HoctapComponent,
     PhongdaotaoComponent,
     AdminComponent,
+    HTXettuyenComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +60,7 @@ const routesConfig: Routes = [
     HttpClientModule,
     FormsModule
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

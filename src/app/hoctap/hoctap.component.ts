@@ -24,7 +24,7 @@ export class HoctapComponent implements OnInit {
   }
 
   getRulesHocTap() {
-    this.http.get('http://localhost:52360/api/luathoctap/getall?idLoailuat=1')
+    this.http.get('http://webdatamining.somee.com/api/luathoctap/getall?idLoailuat=1')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)
@@ -33,7 +33,7 @@ export class HoctapComponent implements OnInit {
   }
 
   getDsKhoa() {
-    this.http.get('http://localhost:52360/api/data/getallkhoa')
+    this.http.get('http://webdatamining.somee.com/api/data/getallkhoa')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.dsKhoa = resJson)
@@ -41,7 +41,7 @@ export class HoctapComponent implements OnInit {
   }
 
   getDsMonHoc() {
-    this.http.get('http://localhost:52360/api/data/getallmonhoc')
+    this.http.get('http://webdatamining.somee.com/api/data/getallmonhoc')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.dsMonHoc = resJson)

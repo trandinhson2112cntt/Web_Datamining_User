@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="row mt-4 mb-4">
+        <div class="col-md-6">
+            <mdb-card>
+                <mdb-card-header class="primary-color white-text">
+                  <h4>Tư vấn hình thức xét tuyển</h4>
+                </mdb-card-header>
+                <mdb-card-body>
+                    <div class="col-md-12">
+                        <div class="">
+                          <label>Hình Thức Xét Tuyển: </label>
+                          <select class="form-control col-md-5" [(ngModel)]="sttLuat">
+                            <option value="5">Xét Tuyển Học Bạ</option>
+                            <option value="6">Thi Tuyển</option>
+                          </select>
+                        </div>
+                        <br>
+                        <label>Chọn Ngành Xét Tuyển: </label>
+                        <select class="form-control col-md-4" id="dsKhoa" [(ngModel)]="selectkhoa">
+                            <option value="" disabled selected>--Chọn ngành--</option>
+                            <option *ngFor="let item of dsKhoa" [value]="item.TenKhoa">{{item.TenKhoa}}</option>
+                          </select>
+                     
+                       
+                        <button mdbBtn type="button" color="info" rounded="true" style="border-radius: 999px" class="waves-light float-right"
+                          mdbWavesEffect (click)="getRulesXetTuyen()">Tra cứu</button>
+                
+                      </div>
+                </mdb-card-body>
+              </mdb-card>
+          
+        </div>
+        <div class="col-md-4">
+          <circle-progress
+          [percent]="x"
+      [animation]="true"
+      [animationDuration]="300"
+      [backgroundColor] = "'#F1F1F1'"
+          [backgroundOpacity] = 0
+          [backgroundStrokeWidth] = 5
+          [backgroundPadding] = 24
+          [radius] = "86"
+          [space] = 2
+          [toFixed] = 0
+          [outerStrokeWidth] = "11"
+          [outerStrokeColor] = "'#FF6347'"
+          [innerStrokeColor] = "'#32CD32'"
+          [innerStrokeWidth] = "3"
+          [titleFontSize] = "17"
+          [subtitleColor] = "'#ffffff'"
+          [imageHeight] = 133
+          [showSubtitle] = "false"
+          [responsive] = "true"
+          [startFromZero] = "false"
+          ></circle-progress>     
+        </div>
+      </div>
+      <div class="row"  *ngIf="listHidden">
+        <div class="col-md-12">
+          <table mdbTable hover="true">
+            <thead>
+              <tr>
+                <th style="width: 10%">#</th>
+                <th style="width: 25%">X</th>
+                <th style="width: 25%">Y</th>
+                <th style="width: 15%">Tỷ lệ chính xác</th>
+                
+              
+              </tr>
+            </thead>
+            <tbody>
+              <tr mdbTableCol *ngFor="let el of data">
+                
+                <th scope="row" >{{el.Id}}</th>
+                <td>{{el.X}}</td>
+                <td>{{el.Y}}</td>
+                <td>{{el.Confidence}}</td>
+              
+              </tr>
+              
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+</div>
