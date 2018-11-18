@@ -57,9 +57,9 @@ export class AdminComponent {
     }
   }
 
-  xemluat() {
+  xemluat = () => {
     switch (this.xemLuatStt) {
-      case '1' : {
+      case '1': {
         this.GetAllRulesLuatHocTap();
         break;
       }
@@ -79,7 +79,7 @@ export class AdminComponent {
         this.GetAllRulesLuatTuyenSinh();
         break;
       }
-      case '5' : {
+      case '5': {
         this.GetAllRulesLuatTuyenSinh();
         break;
       }
@@ -203,5 +203,17 @@ export class AdminComponent {
       .catch(err => console.log(err));
     console.log(this.xemLuatStt);
   }
+  // -----------Xoa Luat----------------
+  deleteRule(value) {
+    // tslint:disable-next-line:max-line-length
+    this.http.get('http://localhost:52360/api/luatphongdaotao/deleteRule?keyword=' + value)
+      .toPromise()
+      .then(res => res.json())
+      .then(resJson => this.data = resJson)
+      .catch(err => console.log(err));
+    console.log(this.xemLuatStt);
+    this.xemluat();
+  }
 }
+
 

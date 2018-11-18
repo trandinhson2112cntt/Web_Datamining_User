@@ -75,7 +75,7 @@
               <td>{{el.Y}}</td>
               <td>{{el.Confidence}}</td>
               <td><button mdbBtn type="button" color="success" rounded="true" style="border-radius: 100px" class="waves-light"
-                  mdbWavesEffect>Xóa</button></td>
+                  mdbWavesEffect (click)="deleteRule(el.Id)">Xóa</button></td>
             </tr>
           </tbody>
         </table>
