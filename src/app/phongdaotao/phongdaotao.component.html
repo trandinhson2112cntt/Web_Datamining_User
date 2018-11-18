@@ -1,1 +1,74 @@
-<h1>Đây là trang của phòng đào tạo</h1>
+<div class="row m-3">
+    <div class="col-md-4">
+      <!-- <mdb-card>
+        <mdb-card-header class="primary-color white-text">
+          <h4>Khởi tạo các luật</h4>
+        </mdb-card-header>
+        <mdb-card-body>
+          <label>Hãy chọn luật muốn khởi tạo: </label>
+          <select class="form-control" [(ngModel)]="sttLuat">
+            <option value="1">Luật phòng đào tạo: Khu vực ứng tuyển</option>
+            <option value="2">Luật phòng đào tạo: Khu vực nhập học</option>
+          </select>
+          <br>
+          <div class="row p-3">
+            <input class="form-control col-md-6" type="text" placeholder="Nhập độ hỗ trợ (%)" [(ngModel)]="sup">
+            <input class="form-control col-md-6" type="text" placeholder="Nhập độ tin cậy (%)" [(ngModel)]="con">
+          </div>
+          <button mdbBtn type="button" color="info" rounded="true" style="border-radius: 999px" class="waves-light float-right"
+            mdbWavesEffect (click)="luachonluat()">Khởi tạo</button>
+          <button mdbBtn type="button" color="info" rounded="true" style="border-radius: 999px" class="waves-light float-left"
+            mdbWavesEffect (click)="clickLink()">Cập nhập tất cả</button>
+  
+        </mdb-card-body>
+      </mdb-card> -->
+      <!-- <br> -->
+      <mdb-card>
+        <mdb-card-header class="primary-color white-text">
+          <h4>Xem luật</h4>
+        </mdb-card-header>
+        <mdb-card-body>
+          <label>Hãy chọn luật muốn xem: </label>
+          <select class="form-control" [(ngModel)]="xemLuatStt" >           
+            <option value="1">Luật phòng đào tạo: Khu vực ứng tuyển</option>
+            <option value="2">Luật phòng đào tạo: Khu vực nhập học</option>
+          </select>
+          <br>
+          <button mdbBtn type="button" color="info" rounded="true" style="border-radius: 999px" class="waves-light float-right"
+            mdbWavesEffect (click)="xemluat()">Xem</button>
+  
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+    <div class="col-md-8">
+      <mdb-card>
+        <mdb-card-header class="primary-color white-text">
+          <h4>Danh sách luật</h4>
+        </mdb-card-header>
+        <mdb-card-body>
+          <table mdbTable hover="true">
+            <thead>
+              <tr>
+                <th style="width: 10%">#</th>
+                <th style="width: 25%">X</th>
+                <th style="width: 25%">Y</th>
+                <th style="width: 15%">Tỷ lệ chính xác</th>
+                <th style="width: 20%">Chức năng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr mdbTableCol *ngFor="let el of data">
+                <th scope="row">{{el.Id}}</th>
+                <td>{{el.X}}</td>
+                <td>{{el.Y}}</td>
+                <td>{{el.Confidence}}</td>
+                <td><button mdbBtn type="button" color="success" rounded="true" style="border-radius: 100px" class="waves-light"
+                    mdbWavesEffect>Xóa</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+  </div>
+  
