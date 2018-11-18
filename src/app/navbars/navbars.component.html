@@ -13,8 +13,8 @@
   <!-- Cover -->
   <!-- Navagation -->
   <div class="row">
-    <div class="col-md-12">
-      <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+    <div id = "menuHomePage" class="col-md-12">
+      <mdb-navbar  SideClass="navbar navbar-expand-lg navbar-dark indigo">
         <!-- Navbar brand -->
         <mdb-navbar-brand>
           <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="router-link-active" (click)="isHidden=true">HUTECH</a>
@@ -38,6 +38,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link waves-light" mdbWavesEffect>Tin tức</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/HT-xet-tuyen']" (click)="changePage()">HT Xét Tuyển</a>
             </li>
             <li class="nav-item">
               <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/trang-phong-dao-tao']" (click)="changePage()">Phòng đào tạo</a>
@@ -126,7 +129,7 @@
           <mdb-card-title>- Với kết quả tuyển sinh của bạn, bạn đang băn khoăn mình có khả năng đậu hay không?</mdb-card-title>
           <!-- <mdb-card-text>With supporting text below as a natural lead-in to additional content.</mdb-card-text> -->
           <br>
-          <button mdbBtn type="button" color="info" rounded="true" style="border-radius: 999px" class="waves-light float-right"
+          <button mdbBtn type="button" color="info" rounded="true" style="border-radius: 100px" class="waves-light float-right"
             mdbWavesEffect routerLink="/tu-van-tuyen-sinh" (click)="clickLink()">Tra cứ thử xem!</button>
 
         </mdb-card-body>
@@ -138,7 +141,7 @@
   </div>
   <div class="row mt-5 mb-3 wow bounceInLeft" data-wow-delay="0.5s">
     <div class="col-md-6">
-      <img src="../assets/image/anh_hoc_tap.jpg" width="100%" style="border-radius:999px">
+      <img src="../assets/image/anh_hoc_tap.jpg" width="100%" style="border-radius:100px">
     </div>
     <div class="col-md-6 p-4">
       <mdb-card>
