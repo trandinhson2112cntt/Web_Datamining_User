@@ -17,19 +17,54 @@ export class TuyensinhComponent implements OnInit {
   sttLuat='5';
   Khoi='';
   Khoa='';
-  rowHidden=false;
+  KhoiA=false;
+  Mon1="";
+  Mon2="";
+  Mon3="";
+ 
+  
 
   constructor(private http: Http) {
     this.listHidden = false;
     this.getDsKhoa();
-    this.rowHidden=false;
-  
 
   }
 
   ngOnInit() {
   }
-
+  ChonKhoi() {
+    switch (this.Khoi) {
+      case 'A': {
+        this.KhoiA = true;
+        this.Mon1="Toán";
+        this.Mon2="Lý";
+        this.Mon3="Hóa";
+        break;
+      }
+      case 'B': {
+        this.KhoiA = true;
+        this.Mon1="Toán";
+        this.Mon2="Hóa";
+        this.Mon3="Sinh";
+        break;
+      }
+      case 'C': {
+        this.KhoiA = true;
+        this.Mon1="Văn";
+        this.Mon2="Sử";
+        this.Mon3="Địa";
+        break;
+      }
+      case 'D': {
+        this.KhoiA = true;
+        this.Mon1="Toán";
+        this.Mon2="Văn";
+        this.Mon3="Anh";
+      
+        break;
+      }
+    }
+  }
   getRulesXetTuyen() {
     this.http.get('http://webdatamining.somee.com/api/luatxettuyen/findrules?idLoailuat='+this.sttLuat+'&&keyword='+this.Khoa)
       .toPromise()

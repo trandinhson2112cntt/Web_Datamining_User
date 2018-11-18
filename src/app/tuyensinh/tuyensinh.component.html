@@ -15,29 +15,29 @@
 
         <h5>Bạn cần điền một số thông tin để tra cứu:</h5>
         <label>Hãy chọn khối xét tuyển: </label>
-        <select class="form-control col-md-4" [(ngModel)]="Khoi">
+        <select class="form-control col-md-4" [(ngModel)]="Khoi" (click)="ChonKhoi()">
           <option value="" disabled selected>--Chọn Khối Xét Tuyển--</option>
-          <option value="A" rowHidd>Khối A</option>
+          <option value="A">Khối A</option>
           <option value="B">Khối B</option>
           <option value="C">Khối C</option>
           <option value="D">Khối D</option>
         </select>
-        <div class="row" *ngIf="rowHidden">
+        <div class="row" *ngIf="KhoiA">
           <div class="md-form input-group col-4">
             <div class="input-group-prepend" id="basic-addon1">
-              <span class="input-group-text" id="basic-addon1">Toán</span>
+              <span class="input-group-text" id="basic-addon1" >{{Mon1}}</span>
             </div>
             <input type="text" class="form-control" placeholder="Nhập điểm" aria-describedby="basic-addon1">
           </div>
           <div class="md-form input-group col-4">
             <div class="input-group-prepend" id="basic-addon1">
-              <span class="input-group-text" id="basic-addon1">Văn</span>
+              <span class="input-group-text" id="basic-addon1"  [(ngModel)]="Mon2">{{Mon2}}</span>
             </div>
             <input type="text" class="form-control" placeholder="Nhập điểm" aria-describedby="basic-addon1">
           </div>
           <div class="md-form input-group col-4">
             <div class="input-group-prepend" id="basic-addon1">
-              <span class="input-group-text" id="basic-addon1">Anh</span>
+              <span class="input-group-text" id="basic-addon1"  [(ngModel)]="Mon3">{{Mon3}}}</span>
             </div>
             <input type="text" class="form-control" placeholder="Nhập điểm" aria-describedby="basic-addon1">
           </div>

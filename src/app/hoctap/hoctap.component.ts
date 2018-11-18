@@ -92,6 +92,7 @@ export class HoctapComponent implements OnInit {
       .then(res => res.json())
       .then(resJson => this.data = resJson)
       .catch(err => console.log(err));
+      this.getMax();
   }
   getRulesDiemTang(value) {
     if (this.model.hinhThucHoc === '1') {
@@ -127,4 +128,10 @@ export class HoctapComponent implements OnInit {
     // tslint:disable-next-line:max-line-length
     return JSON.stringify(this.model) + this.model.hinhThucHoc + this.selectMonHoc + '\t' + this.selectLoaiLuat + this.selectKhoa;
   }
+  getMax(){
+  for (var value of this.data) {
+    console.log(value);
+  
+  }
+}
 }
