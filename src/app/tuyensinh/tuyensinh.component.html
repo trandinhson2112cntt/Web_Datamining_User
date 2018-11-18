@@ -15,14 +15,14 @@
 
         <h5>Bạn cần điền một số thông tin để tra cứu:</h5>
         <label>Hãy chọn khối xét tuyển: </label>
-        <select class="form-control col-md-3" [(ngModel)]="Khoi">
-          
-          <option value="A">Khối A</option>
+        <select class="form-control col-md-4" [(ngModel)]="Khoi">
+          <option value="" disabled selected>--Chọn Khối Xét Tuyển--</option>
+          <option value="A" rowHidd>Khối A</option>
           <option value="B">Khối B</option>
           <option value="C">Khối C</option>
           <option value="D">Khối D</option>
         </select>
-        <div class="row" >
+        <div class="row" *ngIf="rowHidden">
           <div class="md-form input-group col-4">
             <div class="input-group-prepend" id="basic-addon1">
               <span class="input-group-text" id="basic-addon1">Toán</span>
@@ -43,7 +43,7 @@
           </div>
         </div>
         <label>Hãy chọn ngành bạn muốn nộp hồ sơ: </label>
-        <select class="form-control col-md-4" id="dsKhoa" [(ngModel)]="Nganh">
+        <select class="form-control col-md-4" id="dsKhoa" [(ngModel)]="Khoa">
           <option value="" disabled selected>--Chọn ngành--</option>
           <option *ngFor="let item of dsKhoa" [value]="item.TenKhoa">{{item.TenKhoa}}</option>
         </select>
@@ -86,7 +86,7 @@
             <th style="width: 25%">X</th>
             <th style="width: 25%">Y</th>
             <th style="width: 15%">Tỷ lệ chính xác</th>
-            <th style="width: 20%">Chức năng</th>
+           
           </tr>
         </thead>
         <tbody>
@@ -95,8 +95,7 @@
             <td>{{el.X}}</td>
             <td>{{el.Y}}</td>
             <td>{{el.Confidence}}</td>
-            <td><button mdbBtn type="button" color="success" rounded="true" style="border-radius: 100px" class="waves-light"
-              mdbWavesEffect>Số điểm tăng</button></td>
+          
           </tr>
         </tbody>
       </table>

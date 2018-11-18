@@ -15,18 +15,23 @@ export class TuyensinhComponent implements OnInit {
   listHidden = false;
   dsKhoa: Array<String> = [];
   sttLuat='5';
-  Khoi='A';
+  Khoi='';
+  Khoa='';
+  rowHidden=false;
 
   constructor(private http: Http) {
     this.listHidden = false;
     this.getDsKhoa();
+    this.rowHidden=false;
+  
+
   }
 
   ngOnInit() {
   }
 
   getRulesXetTuyen() {
-    this.http.get('http://webdatamining.somee.com/api/luatxettuyen/getall?idLoailuat=2')
+    this.http.get('http://webdatamining.somee.com/api/luatxettuyen/findrules?idLoailuat='+this.sttLuat+'&&keyword='+this.Khoa)
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)
