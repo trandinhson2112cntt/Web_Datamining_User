@@ -5,7 +5,7 @@
         <p style="text-align: center;font-size:20pt">Tư vấn học tập</p>
 
         <label>Hãy chọn hình thức tư vấn: </label>
-        <select class="form-control col-md-6" [(ngModel)]="luaChonLuat" (change)="hienThiTheoLuat()">
+        <select class="form-control col-md-6" #luat (change)="hienThiTheoLuat(luat.value)">
           <option value="1">Tôi nên học vượt/cải thiện môn nào?</option>
           <option value="2">Có nên học vượt/cải thiện môn này không?</option>
         </select>
@@ -42,11 +42,11 @@
           </div>
         </div>
         <button mdbBtn type="button" color="info" rounded="true" style="border-radius: 999px" class="waves-light float-right"
-          mdbWavesEffect (click)="getRules()">Tra cứu</button>
+          mdbWavesEffect (click)="getRules();checkListExist()">Tra cứu</button>
       </div>
     </div>
     <div class="col-md-4">
-      <circle-progress [percent]="75" [animation]="true" [animationDuration]="300" [backgroundColor]="'#F1F1F1'"
+      <circle-progress [percent]="maxPercent" [animation]="true" [animationDuration]="300" [backgroundColor]="'#F1F1F1'"
         [backgroundOpacity]=0 [backgroundStrokeWidth]=5 [backgroundPadding]=24 [radius]="86" [space]=2 [toFixed]=0
         [outerStrokeWidth]="11" [outerStrokeColor]="'#FF6347'" [innerStrokeColor]="'#32CD32'" [innerStrokeWidth]="3"
         [titleFontSize]="17" [subtitleColor]="'#ffffff'" [imageHeight]=133 [showSubtitle]="false" [responsive]="true"
@@ -82,4 +82,4 @@
     Xin lỗi! Thông tin chúng tôi không đủ để gợi ý cho bạn!
   </div>
 </div>
-<p>{{debug}}
+<!-- <p>{{debug}} -->

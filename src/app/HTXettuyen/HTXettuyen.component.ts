@@ -12,51 +12,51 @@ import { isNgTemplate } from '@angular/compiler';
 })
 
 
- 
+
 
 
 export class HTXettuyenComponent implements OnInit {
 
- 
+
 
   private apiUrl = '';
-  sttLuat='5';
+  sttLuat = '5';
   data: Array<String> = [];
   listHidden = false;
   dsKhoa: Array<String> = [];
-  selectkhoa='';
-  x=0;
- 
+  selectkhoa = '';
+  x = 0;
+
   constructor(private http: Http) {
     this.listHidden = false;
     this.getDsKhoa();
   }
-       
-  
-  
+
+
+
   ngOnInit() {
   }
- 
-  
+
+
   getRulesXetTuyen() {
-    this.http.get('http://webdatamining.somee.com/api/luatxettuyen/findrules?idLoailuat='+this.sttLuat+'&&keyword='+this.selectkhoa)
+    this.http.get('http://localhost:52360/api/luatxettuyen/findrules?idLoailuat=' + this.sttLuat + '&&keyword=' + this.selectkhoa)
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)
       .catch(err => console.log(err));
     this.listHidden = true;
-    
+
 
   }
-  
+
   getDsKhoa() {
-    this.http.get('http://webdatamining.somee.com/api/data/getallkhoa')
+    this.http.get('http://localhost:52360/api/data/getallkhoa')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.dsKhoa = resJson)
       .catch(err => console.log(err));
-    
+
   }
- 
-  
+
+
 }
