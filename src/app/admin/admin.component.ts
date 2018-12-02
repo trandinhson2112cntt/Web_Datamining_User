@@ -104,7 +104,7 @@ export class AdminComponent {
   // ----------Luat Hoc Tap-----------------
   CreateRulesHocTapKhoaHocVuot() {
     // tslint:disable-next-line:max-line-length
-    this.http.get('http://webdatamining.somee.com/api/luathoctap/create?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
+    this.http.get('http://localhost:52360/api/luathoctap/create?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)
@@ -113,7 +113,7 @@ export class AdminComponent {
   }
   CreateRulesHocTapKhoaHocCaiThien() {
     // tslint:disable-next-line:max-line-length
-    this.http.get('http://webdatamining.somee.com/api/luathoctap/createcaithien?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
+    this.http.get('http://localhost:52360/api/luathoctap/createcaithien?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)
@@ -122,7 +122,7 @@ export class AdminComponent {
   }
   CreateRulesHocTapMonHocVuotDiemTang() {
     // tslint:disable-next-line:max-line-length
-    this.http.get('http://webdatamining.somee.com/api/luathoctap/CreateDiemTangHocVuot?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
+    this.http.get('http://localhost:52360/api/luathoctap/CreateDiemTangHocVuot?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)
@@ -131,7 +131,7 @@ export class AdminComponent {
   }
   CreateRulesHocTapMonCaiThienDiemTang() {
     // tslint:disable-next-line:max-line-length
-    this.http.get('http://webdatamining.somee.com/api/luathoctap/CreateDiemTangCaiThien?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
+    this.http.get('http://localhost:52360/api/luathoctap/CreateDiemTangCaiThien?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)
@@ -140,7 +140,7 @@ export class AdminComponent {
   }
   GetAllRulesLuatHocTap() {
     // tslint:disable-next-line:max-line-length
-    this.http.get('http://webdatamining.somee.com/api/luathoctap/getall?idLoailuat=' + this.xemLuatStt)
+    this.http.get('http://localhost:52360/api/luathoctap/getall?idLoailuat=' + this.xemLuatStt)
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)
@@ -150,7 +150,7 @@ export class AdminComponent {
   // ----------Luat Tuyen Sinh-----------------
   CreateRulesTuyenSinhHocBa() {
     // tslint:disable-next-line:max-line-length
-    this.http.get('http://webdatamining.somee.com/api/luatxettuyen/createxthb?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
+    this.http.get('http://localhost:52360/api/luatxettuyen/createxthb?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)
@@ -159,7 +159,7 @@ export class AdminComponent {
   }
   CreateRulesTuyenSinhThiTuyen() {
     // tslint:disable-next-line:max-line-length
-    this.http.get('http://webdatamining.somee.com/api/luatxettuyen/createthituyen?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
+    this.http.get('http://localhost:52360/api/luatxettuyen/createthituyen?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)
@@ -168,7 +168,7 @@ export class AdminComponent {
   }
   GetAllRulesLuatTuyenSinh() {
     // tslint:disable-next-line:max-line-length
-    this.http.get('http://webdatamining.somee.com/api/luatxettuyen/getall?idLoailuat=' + this.xemLuatStt)
+    this.http.get('http://localhost:52360/api/luatxettuyen/getall?idLoailuat=' + this.xemLuatStt)
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)
@@ -178,7 +178,7 @@ export class AdminComponent {
   // -----------Luat Dao Tao----------------
   CreateRulesDaoTaoUngTuyen() {
     // tslint:disable-next-line:max-line-length
-    this.http.get('http://webdatamining.somee.com/api/luatphongdaotao/createhinhthuckhuvuc?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
+    this.http.get('http://localhost:52360/api/luatphongdaotao/createhinhthuckhuvuc?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)
@@ -187,7 +187,7 @@ export class AdminComponent {
   }
   CreateRulesDaoTaoNhapHoc() {
     // tslint:disable-next-line:max-line-length
-    this.http.get('http://webdatamining.somee.com/api/luatphongdaotao/createkhuvucnhaphoc?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
+    this.http.get('http://localhost:52360/api/luatphongdaotao/createkhuvucnhaphoc?idLoailuat=' + this.sttLuat + '&&sup=' + this.sup + '&&con=' + this.con + '')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)
@@ -196,7 +196,7 @@ export class AdminComponent {
   }
   GetAllRulesLuatDaoTao() {
     // tslint:disable-next-line:max-line-length
-    this.http.get('http://webdatamining.somee.com/api/luatphongdaotao/getall?idLoailuat=' + this.xemLuatStt)
+    this.http.get('http://localhost:52360/api/luatphongdaotao/getall?idLoailuat=' + this.xemLuatStt)
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)

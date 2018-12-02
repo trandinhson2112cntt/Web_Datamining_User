@@ -20,7 +20,8 @@ export class HoctapComponent implements OnInit {
   hienThiMonhoc = false;
   selectKhoa = '';
   selectMonHoc = '';
-  selectLoaiLuat = '';
+  selectLoaiLuat="";
+  tLoaiLuat = '';
   constructor(private http: Http) {
     this.listHidden = false;
     this.getDsKhoa();
@@ -110,7 +111,7 @@ export class HoctapComponent implements OnInit {
     }
   }
   getDsKhoa() {
-    this.http.get('http://webdatamining.somee.com/api/data/getallkhoa')
+    this.http.get('http://localhost:52360/api/data/getallkhoa')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.dsKhoa = resJson)
@@ -118,7 +119,7 @@ export class HoctapComponent implements OnInit {
   }
 
   getDsMonHoc() {
-    this.http.get('http://webdatamining.somee.com/api/data/getallmonhoc')
+    this.http.get('http://localhost:52360/api/data/getallmonhoc')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.dsMonHoc = resJson)

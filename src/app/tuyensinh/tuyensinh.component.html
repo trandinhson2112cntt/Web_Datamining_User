@@ -10,43 +10,50 @@
             <option value="6">Thi Tuyển </option>
             
           </select>
+         
         </div>
         <br>
 
         <h5>Bạn cần điền một số thông tin để tra cứu:</h5>
+        <div>
+            <div >CMND:</div>
+          <div ><input class="form-control col-md-4" type="text" placeholder="Nhập CMND" [(ngModel)]="cmnd"></div>
+        </div>
+        <label>Hãy chọn khoa bạn muốn nộp hồ sơ:</label>
+        <select class="form-control col-md-4" id="dsKhoa" [(ngModel)]="Khoa">
+          <option value="" disabled selected>--Chọn khoa--</option>
+          <option *ngFor="let item of dsKhoa" [value]="item.TenKhoa">{{item.TenKhoa}}</option>
+        </select>
         <label>Hãy chọn khối xét tuyển: </label>
-        <select class="form-control col-md-4" [(ngModel)]="Khoi" (click)="ChonKhoi()">
+        <select class="form-control col-md-4" [(ngModel)]="Khoi" (change)="ChonKhoi()">
           <option value="" disabled selected>--Chọn Khối Xét Tuyển--</option>
           <option value="A">Khối A</option>
           <option value="B">Khối B</option>
           <option value="C">Khối C</option>
           <option value="D">Khối D</option>
         </select>
-        <div class="row" *ngIf="KhoiA">
+        <div class="row" *ngIf="FormDiem">
           <div class="md-form input-group col-4">
             <div class="input-group-prepend" id="basic-addon1">
-              <span class="input-group-text" id="basic-addon1" >{{Mon1}}</span>
+              <span class="input-group-text" id="basic-addon1" [(ngModel)]="Mon1">{{Mon1}}</span>
             </div>
-            <input type="text" class="form-control" placeholder="Nhập điểm" aria-describedby="basic-addon1">
+            <input type="number"  min="0" max="10" [(ngModel)]="d1" class="form-control" placeholder="Nhập điểm" aria-describedby="basic-addon1">
           </div>
           <div class="md-form input-group col-4">
             <div class="input-group-prepend" id="basic-addon1">
               <span class="input-group-text" id="basic-addon1"  [(ngModel)]="Mon2">{{Mon2}}</span>
             </div>
-            <input type="text" class="form-control" placeholder="Nhập điểm" aria-describedby="basic-addon1">
+            <input type="number" min="0" max="10" [(ngModel)]="d2" class="form-control" placeholder="Nhập điểm" aria-describedby="basic-addon1">
           </div>
           <div class="md-form input-group col-4">
             <div class="input-group-prepend" id="basic-addon1">
-              <span class="input-group-text" id="basic-addon1"  [(ngModel)]="Mon3">{{Mon3}}}</span>
+              <span class="input-group-text" id="basic-addon1"  [(ngModel)]="Mon3">{{Mon3}}</span>
+              
             </div>
-            <input type="text" class="form-control" placeholder="Nhập điểm" aria-describedby="basic-addon1">
+            <input type="number" min="0" max="10" [(ngModel)]="d3" class="form-control" placeholder="Nhập điểm" aria-describedby="basic-addon1">
           </div>
         </div>
-        <label>Hãy chọn ngành bạn muốn nộp hồ sơ: </label>
-        <select class="form-control col-md-4" id="dsKhoa" [(ngModel)]="Khoa">
-          <option value="" disabled selected>--Chọn ngành--</option>
-          <option *ngFor="let item of dsKhoa" [value]="item.TenKhoa">{{item.TenKhoa}}</option>
-        </select>
+        
         <button mdbBtn type="button" color="info" rounded="true" style="border-radius: 999px" class="waves-light float-right"
           mdbWavesEffect (click)="getRulesXetTuyen()">Tra cứu</button>
 
@@ -101,4 +108,8 @@
       </table>
     </div>
   </div>
+  <div class="alert alert-warning m-2" role="alert" *ngIf="alertHidden">
+    Xin lỗi! Thông tin chúng tôi không đủ để gợi ý cho bạn! Hãy chắn chắn bạn đã nhập đủ thông tin.
+  </div>
 </div>
+
