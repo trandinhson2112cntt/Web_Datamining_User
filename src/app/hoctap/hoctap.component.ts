@@ -82,7 +82,7 @@ export class HoctapComponent implements OnInit {
     }
   }
   getRulesHocTap() {
-    this.http.get('http://localhost:52360/api/luathoctap/findrules?idLoailuat=' + this.selectLoaiLuat + '&&keyword=' + this.selectKhoa)
+    this.http.get('http://webdatamining.somee.com/api/luathoctap/findrules?idLoailuat=' + this.selectLoaiLuat + '&&keyword=' + this.selectKhoa)
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)
@@ -91,13 +91,13 @@ export class HoctapComponent implements OnInit {
   }
   getRulesDiemTang(value) {
     if (this.model.hinhThucHoc === '1') {
-      this.http.get('http://localhost:52360/api/luathoctap/findrules?idLoailuat=3' + '&&keyword=' + value)
+      this.http.get('http://webdatamining.somee.com/api/luathoctap/findrules?idLoailuat=3' + '&&keyword=' + value)
         .toPromise()
         .then(res => res.json())
         .then(resJson => this.data = resJson)
         .catch(err => console.log(err));
     } else {
-      this.http.get('http://localhost:52360/api/luathoctap/findrules?idLoailuat=4' + '&&keyword=' + value)
+      this.http.get('http://webdatamining.somee.com/api/luathoctap/findrules?idLoailuat=4' + '&&keyword=' + value)
         .toPromise()
         .then(res => res.json())
         .then(resJson => this.data = resJson)
@@ -106,7 +106,7 @@ export class HoctapComponent implements OnInit {
     this.maxPercent =  this.getMaxData(this.data);
   }
   getDsKhoa() {
-    this.http.get('http://localhost:52360/api/data/getallkhoa')
+    this.http.get('http://webdatamining.somee.com/api/data/getallkhoa')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.dsKhoa = resJson)
@@ -114,7 +114,7 @@ export class HoctapComponent implements OnInit {
   }
 
   getDsMonHoc() {
-    this.http.get('http://localhost:52360/api/data/getallmonhoc')
+    this.http.get('http://webdatamining.somee.com/api/data/getallmonhoc')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.dsMonHoc = resJson)

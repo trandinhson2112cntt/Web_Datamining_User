@@ -25,13 +25,13 @@
       <!-- <br> -->
       <mdb-card>
         <mdb-card-header class="primary-color white-text">
-          <h4>Xem luật</h4>
+          <h4>Phân tích khu vực</h4>
         </mdb-card-header>
         <mdb-card-body>
-          <label>Hãy chọn luật muốn xem: </label>
+          <label>Xem phân tích: </label>
           <select class="form-control" [(ngModel)]="xemLuatStt" >           
-            <option value="1">Luật phòng đào tạo: Khu vực ứng tuyển</option>
-            <option value="2">Luật phòng đào tạo: Khu vực nhập học</option>
+            <option value="7">Học sinh khu vực X thường có hình thức xét tuyển Y</option>
+            <option value="8">Học sinh khu vực X thường đăng ký học ngành Y</option>
           </select>
           <br>
           <button mdbBtn type="button" color="info" rounded="true" style="border-radius: 999px" class="waves-light float-right"
@@ -43,7 +43,7 @@
     <div class="col-md-8">
       <mdb-card>
         <mdb-card-header class="primary-color white-text">
-          <h4>Danh sách luật</h4>
+          <h4>Danh sách kết quả</h4>
         </mdb-card-header>
         <mdb-card-body>
           <table mdbTable hover="true">
