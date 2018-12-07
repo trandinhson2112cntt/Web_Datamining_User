@@ -6,7 +6,7 @@
         </mdb-card-header>
         <mdb-card-body>
           <label>Xem phân tích: </label>
-          <select class="form-control" [(ngModel)]="xemLuatStt" >           
+          <select  class="form-control" [(ngModel)]="xemLuatStt" >           
             <option value="7">Học sinh khu vực X thường có hình thức xét tuyển Y</option>
             <option value="8">Học sinh khu vực X thường đăng ký học ngành Y</option>
           </select>
@@ -20,15 +20,15 @@
     <div class="col-md-8">
       <mdb-card>
         <mdb-card-header class="primary-color white-text">
-          <h4>Danh sách kết quả</h4>
+          <h4>{{listName}}</h4>
         </mdb-card-header>
         <mdb-card-body>
           <table mdbTable hover="true">
             <thead>
               <tr>
                 <th style="width: 10%">#</th>
-                <th style="width: 25%">X</th>
-                <th style="width: 25%">Y</th>
+                <th style="width: 25%">Khu Vực</th>
+                <th style="width: 25%">Ngành</th>
                 <th style="width: 15%">Tỷ lệ chính xác</th>
                 <th style="width: 20%">Chức năng</th>
               </tr>
