@@ -17,7 +17,7 @@
         <h5>Bạn cần điền một số thông tin để tra cứu:</h5>
         <div>
             <div >CMND:</div>
-          <div ><input class="form-control col-md-4" type="text" placeholder="Nhập CMND" [(ngModel)]="cmnd"></div>
+          <div ><input class="form-control col-md-4" type="number" placeholder="Nhập CMND" [(ngModel)]="cmnd"></div>
         </div>
         <label>Hãy chọn khoa bạn muốn nộp hồ sơ:</label>
         <select class="form-control col-md-4" id="dsKhoa" [(ngModel)]="Khoa">
@@ -48,20 +48,20 @@
           <div class="md-form input-group col-4">
             <div class="input-group-prepend" id="basic-addon1">
               <span class="input-group-text" id="basic-addon1"  [(ngModel)]="Mon3">{{Mon3}}</span>
-              
+
             </div>
             <input type="number" min="0" max="10" [(ngModel)]="d3" class="form-control" placeholder="Nhập điểm" aria-describedby="basic-addon1">
           </div>
         </div>
         
         <button mdbBtn type="button" color="info" rounded="true" style="border-radius: 999px" class="waves-light float-right"
-          mdbWavesEffect (click)="getRulesXetTuyen()">Tra cứu</button>
+          mdbWavesEffect (click)="getRulesXetTuyen();insertKS()">Tra cứu</button>
 
       </div>
     </div>
     <div class="col-md-4">
       <circle-progress
-      [percent]="85"
+      [percent]="maxPercent"
   [animation]="true"
   [animationDuration]="300"
   [backgroundColor] = "'#F1F1F1'"

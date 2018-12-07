@@ -17,7 +17,7 @@ export class TuyensinhComponent implements OnInit {
   data: Array<String> = [];
   listHidden = false;
   alertHidden = false;
-  percent='';
+  maxPercent='';
   dsKhoa: Array<String> = [];
   sttLuat='5';
   d1=''; d2=''; d3=''; dt='';
@@ -28,17 +28,10 @@ export class TuyensinhComponent implements OnInit {
   Mon2='';
   Mon3='';
   cmnd='';
- 
-  
 
   constructor(private http: Http) {
     this.listHidden = false;
     this.getDsKhoa();
-    this.Mon1='Toan';
-    this.Mon2='Van';
-    this.Mon3='Anh';
-   
-
   }
 
   ngOnInit() {
@@ -50,7 +43,6 @@ export class TuyensinhComponent implements OnInit {
         this.Mon1="Toán";
         this.Mon2="Lý";
         this.Mon3="Hóa";
-        this.d1=''; this.d2=''; this.d3='';
         break;
       }
       case 'B': {
@@ -58,7 +50,6 @@ export class TuyensinhComponent implements OnInit {
         this.Mon1="Toán";
         this.Mon2="Hóa";
         this.Mon3="Sinh";
-        this.d1=''; this.d2=''; this.d3='';
         break;
       }
       case 'C': {
@@ -66,7 +57,6 @@ export class TuyensinhComponent implements OnInit {
         this.Mon1="Văn";
         this.Mon2="Sử";
         this.Mon3="Địa";
-        this.d1=''; this.d2=''; this.d3='';
         break;
       }
       case 'D': {
@@ -74,12 +64,12 @@ export class TuyensinhComponent implements OnInit {
         this.Mon1="Toán";
         this.Mon2="Văn";
         this.Mon3="Anh";
-        this.d1=''; this.d2=''; this.d3='';
-        break;
       }
+     
     }
   }
   getRulesXetTuyen() {
+
     if(this.cmnd==''||this.Khoa=='')
     {
       this.listHidden=false;
@@ -92,6 +82,7 @@ export class TuyensinhComponent implements OnInit {
           .then(res => res.json())
           .then(resJson => this.data = resJson)
           .catch(err => console.log(err));
+          this.maxPercent =  this.getMaxData(this.data);
          // this.listHidden=true;
           
         this.checkListExist();
@@ -102,13 +93,13 @@ export class TuyensinhComponent implements OnInit {
         Math.ceil(+this.dt);
         
         this.http.get('http://localhost:52360/api/luatxettuyen/findrules?idLoailuat='+this.sttLuat+'&&keyword='+this.Khoa+'&&dt='+this.dt)
-        //this.http.get('http://localhost:52360/api/khaosat/create?cmnd='+this.cmnd+'&&khoi='+this.Khoi+'&&d1='+this.d1+'&&d2='+this.d2+'&&d3='+this.d3)
           .toPromise()
           .then(res => res.json())
           .then(resJson => this.data = resJson)
           .catch(err => console.log(err));
+          this.maxPercent =  this.getMaxData(this.data);
          // this.listHidden=true;
-          
+        
         this.checkListExist();
       }
     }
@@ -123,7 +114,19 @@ export class TuyensinhComponent implements OnInit {
       this.listHidden = false;
       this.alertHidden = true;
     }
+
   }
+insertKS()
+{
+  if(this.cmnd!=''&&this.Khoi!=''&&this.d1!=''&&this.d2!=''&&this.d3!='')
+  {
+    this.http.get('http://localhost:52360/api/khaosat/create?cmnd='+this.cmnd+'&&khoi='+this.Khoi+'&&d1='+this.d1+'&&d2='+this.d2+'&&d3='+this.d3)
+  .toPromise()
+  .then(res => res.json());
+  console.log("Them Thanh Cong") ; 
+  }
+  
+}
   getDsKhoa() {
     this.http.get('http://localhost:52360/api/data/getallkhoa')
       .toPromise()
@@ -131,8 +134,7 @@ export class TuyensinhComponent implements OnInit {
       .then(resJson => this.dsKhoa = resJson)
       .catch(err => console.log(err));
   }
-
- 
- 
-  
+  getMaxData(data) {
+    return Math.max.apply(Math, data.map(function(o) { return o.Confidence; }));
+  }
 }

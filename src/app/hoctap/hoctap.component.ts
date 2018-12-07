@@ -22,6 +22,8 @@ export class HoctapComponent implements OnInit {
   selectMonHoc = '';
   selectLoaiLuat="";
   tLoaiLuat = '';
+  maxPercent = 0;
+
   constructor(private http: Http) {
     this.listHidden = false;
     this.getDsKhoa();
@@ -29,14 +31,16 @@ export class HoctapComponent implements OnInit {
   }
   ngOnInit() {
   }
-  hienThiTheoLuat() {
-    switch (this.luaChonLuat) {
+  hienThiTheoLuat(value) {
+    switch (value) {
       case '1': {
         this.hienThiMonhoc = false;
+        this.luaChonLuat = '1';
         break;
       }
       case '2': {
         this.hienThiMonhoc = true;
+        this.luaChonLuat = '2';
         break;
       }
     }
@@ -47,15 +51,11 @@ export class HoctapComponent implements OnInit {
         if (this.luaChonLuat === '1') {
           this.selectLoaiLuat = '1';
           this.getRulesHocTap();
-
-          this.checkListExist();
           break;
         } else {
           this.selectLoaiLuat = '3';
           this.selectKhoa = this.selectMonHoc;
           this.getRulesHocTap();
-
-          this.checkListExist();
           break;
         }
       }
@@ -64,15 +64,11 @@ export class HoctapComponent implements OnInit {
         if (this.luaChonLuat === '1') {
           this.selectLoaiLuat = '2';
           this.getRulesHocTap();
-
-          this.checkListExist();
           break;
         } else {
           this.selectLoaiLuat = '4';
           this.selectKhoa = this.selectMonHoc;
           this.getRulesHocTap();
-
-          this.checkListExist();
           break;
         }
       }
@@ -93,7 +89,7 @@ export class HoctapComponent implements OnInit {
       .then(res => res.json())
       .then(resJson => this.data = resJson)
       .catch(err => console.log(err));
-      this.getMax();
+    this.maxPercent =  this.getMaxData(this.data);
   }
   getRulesDiemTang(value) {
     if (this.model.hinhThucHoc === '1') {
@@ -109,6 +105,7 @@ export class HoctapComponent implements OnInit {
         .then(resJson => this.data = resJson)
         .catch(err => console.log(err));
     }
+    this.maxPercent =  this.getMaxData(this.data);
   }
   getDsKhoa() {
     this.http.get('http://localhost:52360/api/data/getallkhoa')
@@ -125,14 +122,11 @@ export class HoctapComponent implements OnInit {
       .then(resJson => this.dsMonHoc = resJson)
       .catch(err => console.log(err));
   }
+  getMaxData(data) {
+    return Math.max.apply(Math, data.map(function(o) { return o.Confidence; }));
+  }
   get debug() {
     // tslint:disable-next-line:max-line-length
     return JSON.stringify(this.model) + this.model.hinhThucHoc + this.selectMonHoc + '\t' + this.selectLoaiLuat + this.selectKhoa;
   }
-  getMax(){
-  for (var value of this.data) {
-    console.log(value);
-  
-  }
-}
 }
