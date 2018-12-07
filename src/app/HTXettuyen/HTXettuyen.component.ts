@@ -39,7 +39,7 @@ export class HTXettuyenComponent implements OnInit {
 
 
   getRulesXetTuyen() {
-    this.http.get('http://localhost:52360/api/luatxettuyen/findrules?idLoailuat=' + this.sttLuat + '&&keyword=' + this.selectkhoa)
+    this.http.get('http://webdatamining.somee.com/api/luatxettuyen/findrules?idLoailuat=' + this.sttLuat + '&&keyword=' + this.selectkhoa)
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.data = resJson)
@@ -50,7 +50,7 @@ export class HTXettuyenComponent implements OnInit {
   }
 
   getDsKhoa() {
-    this.http.get('http://localhost:52360/api/data/getallkhoa')
+    this.http.get('http://webdatamining.somee.com/api/data/getallkhoa')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.dsKhoa = resJson)
