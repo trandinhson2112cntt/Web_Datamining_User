@@ -77,7 +77,7 @@ export class TuyensinhComponent implements OnInit {
     else{
       if(this.Khoi=='')
       {
-        this.http.get('http://localhost:52360/api/luatxettuyen/findrules1?idLoailuat='+this.sttLuat+'&&keyword='+this.Khoa)
+        this.http.get('http://webdatamining.somee.com/api/luatxettuyen/findrules1?idLoailuat='+this.sttLuat+'&&keyword='+this.Khoa)
         .toPromise()
           .then(res => res.json())
           .then(resJson => this.data = resJson)
@@ -92,7 +92,7 @@ export class TuyensinhComponent implements OnInit {
         this.dt=+this.d1+this.d2+this.d3; 
         Math.ceil(+this.dt);
         
-        this.http.get('http://localhost:52360/api/luatxettuyen/findrules?idLoailuat='+this.sttLuat+'&&keyword='+this.Khoa+'&&dt='+this.dt)
+        this.http.get('http://webdatamining.somee.com/api/luatxettuyen/findrules?idLoailuat='+this.sttLuat+'&&keyword='+this.Khoa+'&&dt='+this.dt)
           .toPromise()
           .then(res => res.json())
           .then(resJson => this.data = resJson)
@@ -120,7 +120,7 @@ insertKS()
 {
   if(this.cmnd!=''&&this.Khoi!=''&&this.d1!=''&&this.d2!=''&&this.d3!='')
   {
-    this.http.get('http://localhost:52360/api/khaosat/create?cmnd='+this.cmnd+'&&khoi='+this.Khoi+'&&d1='+this.d1+'&&d2='+this.d2+'&&d3='+this.d3)
+    this.http.get('http://webdatamining.somee.com/api/khaosat/create?cmnd='+this.cmnd+'&&khoi='+this.Khoi+'&&d1='+this.d1+'&&d2='+this.d2+'&&d3='+this.d3)
   .toPromise()
   .then(res => res.json());
   console.log("Them Thanh Cong") ; 
@@ -128,7 +128,7 @@ insertKS()
   
 }
   getDsKhoa() {
-    this.http.get('http://localhost:52360/api/data/getallkhoa')
+    this.http.get('http://webdatamining.somee.com/api/data/getallkhoa')
       .toPromise()
       .then(res => res.json())
       .then(resJson => this.dsKhoa = resJson)
